@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useEmail from "./useEmail";
+import useEmail from "../useEmail";
 
 type formState = "submitted" | "error" | "idle" | "loading";
 
