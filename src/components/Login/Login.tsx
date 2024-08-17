@@ -1,7 +1,3 @@
-import { useState } from "react";
-
-const expectedPassword = import.meta.env.VITE_PASSWORD as string;
-
 type LoginProps = React.PropsWithoutRef<{
   handlePasswordSubmit: () => void;
   password: string;
@@ -40,19 +36,3 @@ export const Login = ({
     </div>
   </form>
 );
-export default Login;
-
-export const useLogin = () => {
-  const [password, setPassword] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  const handlePasswordSubmit = () => {
-    if (password === expectedPassword) {
-      setLoggedIn(true);
-    } else {
-      alert("Incorrect password");
-    }
-  };
-
-  return { handlePasswordSubmit, password, setPassword, loggedIn };
-};
