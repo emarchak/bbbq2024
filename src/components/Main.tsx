@@ -18,6 +18,8 @@ const Main = () => (
     </p>
     <p className="pb-6">
       Please let us know if you have additional or new dietary requirements.
+      Barry's bedtime is 6pm, so arrive prior to that if you'd like to see him
+      in action!
     </p>
     <hr className="pb-6 text-center" />
     <ul className="text-center">
