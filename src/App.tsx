@@ -28,7 +28,7 @@ export default function App() {
         style={{ zIndex: -1 }}
       />
       <div className="overflow-scroll">
-        <div className="h-screen lg:flex items-center p-6">
+        <div className="h-screen items-baseline flex p-6">
           <main className="container transform mx-auto bg-white drop-shadow-sm rounded-md p-6 mb-6 max-w-screen-sm font-mono text-gray-700">
             {!loggedIn && (
               <Login
