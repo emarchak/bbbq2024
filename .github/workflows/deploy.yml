@@ -20,6 +20,14 @@ concurrency:
   group: 'pages'
   cancel-in-progress: true
 
+env:
+  VITE_EVENT_TIME: ${{ secrets.VITE_EVENT_TIME }}
+  VITE_EVENT_LOCATION: ${{ secrets.VITE_EVENT_LOCATION }}
+  VITE_EMAILJS_PUBKEY: ${{ secrets.VITE_EMAILJS_PUBKEY }}
+  VITE_EMAILJS_TEMPLATEID: ${{ secrets.VITE_EMAILJS_TEMPLATEID }}
+  VITE_EMAILJS_SERVICEID: ${{ secrets.VITE_EMAILJS_SERVICEID }}
+  VITE_PASSWORD: ${{ secrets.VITE_PASSWORD }}
+
 jobs:
   # Single deploy job since we're just deploying
   deploy:
