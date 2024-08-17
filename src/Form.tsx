@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useEmail from "./useEmail";
 
 type formState = "submitted" | "error" | "idle" | "loading";
 
@@ -7,21 +8,33 @@ export default function Form() {
   const [email, setEmail] = useState("");
   const [adultsAttending, setAdults] = useState("");
   const [childrenAttending, setChildren] = useState("");
-  const [comment, setComment] = useState("");
+  const [message, setMessage] = useState("");
   const [formStatus, setFormStatus] = useState<formState>("idle");
+  const { sendEmail } = useEmail();
 
   const handleSubmit = (event: React.FormEvent) => {
     setFormStatus("loading");
     event.preventDefault();
     console.log("Form submitted:", {
-      name,
-      email,
-      adultsAttending,
-      childrenAttending,
-      comment,
+      to_name: name,
+      to_email: email,
+      adults_attending: adultsAttending,
+      children_attending: childrenAttending,
+      message,
     });
-    setFormStatus("submitted");
-    // Add your form submission logic here
+    const resp = sendEmail({
+      to_name: name,
+      to_email: email,
+      adults_attending: adultsAttending || "0",
+      children_attending: childrenAttending || "0",
+      message,
+    });
+
+    if (resp instanceof Error) {
+      setFormStatus("error");
+    } else {
+      setFormStatus("submitted");
+    }
   };
 
   if (formStatus === "submitted") {
@@ -118,8 +131,8 @@ export default function Form() {
             name="comment"
             id="comment"
             className="block w-full border-0 p-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 focus:outline-none"
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           />
         </div>
         <div className="mt-6">
