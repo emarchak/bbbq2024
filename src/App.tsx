@@ -18,7 +18,7 @@ export default function App() {
   const { handlePasswordSubmit, password, setPassword, loggedIn } = useLogin();
 
   return (
-    <>
+    <div className="h-screen w-screen overflow-hidden">
       <Snowfall
         images={berries}
         snowflakeCount={30}
@@ -27,18 +27,20 @@ export default function App() {
         radius={[50, 75]}
         style={{ zIndex: -1 }}
       />
-      <div className="h-screen flex items-center py-6">
-        <main className="container transform mx-auto bg-white drop-shadow-sm rounded-md p-6 max-w-screen-sm font-mono text-gray-700">
-          {!loggedIn && (
-            <Login
-              handlePasswordSubmit={handlePasswordSubmit}
-              password={password}
-              setPassword={setPassword}
-            />
-          )}
-          {loggedIn && <Main />}
-        </main>
+      <div className="overflow-scroll">
+        <div className="h-screen lg:flex items-center p-6">
+          <main className="container transform mx-auto bg-white drop-shadow-sm rounded-md p-6 mb-6 max-w-screen-sm font-mono text-gray-700">
+            {!loggedIn && (
+              <Login
+                handlePasswordSubmit={handlePasswordSubmit}
+                password={password}
+                setPassword={setPassword}
+              />
+            )}
+            {loggedIn && <Main />}
+          </main>
+        </div>
       </div>
-    </>
+    </div>
   );
 }

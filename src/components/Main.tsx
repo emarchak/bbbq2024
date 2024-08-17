@@ -5,7 +5,7 @@ const eventLocation = import.meta.env.VITE_EVENT_LOCATION;
 
 const Main = () => (
   <>
-    <h1 className="pb-6 text-center text-lg font-bold">Barry-BBQ 2024</h1>
+    <h1 className="pb-6 text-center text-lg font-bold">🫐🍓 BBBQ 2024 🍓🫐</h1>
     <p className="pb-6">
       You are lovingly invited to our first annual <em>Barry BBQ</em> to
       celebrate our beautiful baby boy and welcome you to our new home!
